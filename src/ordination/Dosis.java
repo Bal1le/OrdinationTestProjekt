@@ -6,7 +6,7 @@ public class Dosis {
     private LocalTime tid;
     private double antal;
 
-    public Dosis(LocalTime tid, double antal) {
+    protected Dosis(LocalTime tid, double antal) {
         this.tid = tid;
         this.antal = antal;
     }

@@ -1,17 +1,21 @@
 package ordination;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+
 public class Patient {
     private String cprnr;
     private String navn;
     private double vaegt;
-
-    // TODO: Link til Ordination
+    private ArrayList<Ordination> ordinationer = new ArrayList<>();
 
     public Patient(String cprnr, String navn, double vaegt) {
         this.cprnr = cprnr;
         this.navn = navn;
         this.vaegt = vaegt;
     }
+
+    public void tilføjOrdination(Ordination ordination){ ordinationer.add(ordination);}
 
     public String getCprnr() {
         return cprnr;
@@ -33,7 +37,9 @@ public class Patient {
         this.vaegt = vaegt;
     }
 
-    //TODO: Metoder til at vedligeholde link til Ordination
+    public ArrayList<Ordination> getOrdinationer() {
+        return ordinationer;
+    }
 
     @Override
     public String toString(){
