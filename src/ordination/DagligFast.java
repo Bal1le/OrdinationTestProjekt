@@ -18,8 +18,8 @@ public class DagligFast extends Ordination {
         int antalNuværendeDosis = 0;
 
         for (Dosis dosi : dosis) {
-            if(dosi != null)
-                antalNuværendeDosis += dosi.getAntal();
+            if(dosi != null) //Grunden til det skal checks er at der kan godt ligge noget på pos 0,1 og 3. Hvilket betyder i check at 2 er tom.
+                antalNuværendeDosis += dosi.getAntal(); //Det samme hvis 3 var tom.
         }
 
         if(antalNuværendeDosis == 4) return;
