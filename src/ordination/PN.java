@@ -9,7 +9,15 @@ public class PN extends Ordination{
     private ArrayList<LocalDate> datoerGivet = new ArrayList<>();
 
     public PN(LocalDate startDato, LocalDate slutDato, Laegemiddel laegemiddel, double vaegt) {
+
         super(startDato, slutDato, laegemiddel);
+
+        if(slutDato.isBefore(startDato))
+            throw new IllegalArgumentException("Slutdato er før startdato");
+
+        if(vaegt < 0)
+            throw new IllegalArgumentException("Du kan ikke have minus vægt");
+
         this.antalEnheder = laegemiddel.anbefaletDosisPrDoegn((int)vaegt) * vaegt;
     }
 
@@ -22,12 +30,14 @@ public class PN extends Ordination{
      */
     public boolean givDosis(LocalDate givetDato) {
 
-        if(givetDato.isBefore(super.getSlutDato()) && givetDato.isAfter(super.getStartDato())){
+        if((givetDato.isBefore(super.getSlutDato()) && givetDato.isAfter(super.getStartDato()))
+            || givetDato.equals(super.getStartDato()) || givetDato.equals(super.getSlutDato())
+        ){
             datoerGivet.add(givetDato);
             return true;
         }
 
-        return false;   
+        return false;
     }
 
     public double doegnDosis() {

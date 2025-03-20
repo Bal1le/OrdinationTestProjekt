@@ -12,10 +12,17 @@ public class Patient {
     public Patient(String cprnr, String navn, double vaegt) {
         this.cprnr = cprnr;
         this.navn = navn;
+
+        if(vaegt < 0)
+            throw new IllegalArgumentException("Du kan ikke have minus vægt");
+
         this.vaegt = vaegt;
     }
 
-    public void tilføjOrdination(Ordination ordination){ ordinationer.add(ordination);}
+    public void tilføjOrdination(Ordination ordination){
+        if(ordination != null)
+            ordinationer.add(ordination);
+    }
 
     public String getCprnr() {
         return cprnr;

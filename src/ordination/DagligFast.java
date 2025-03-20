@@ -11,9 +11,12 @@ public class DagligFast extends Ordination {
 
     public DagligFast(LocalDate startDato, LocalDate slutDato, Laegemiddel laegemiddel) {
         super(startDato, slutDato, laegemiddel);
+
+        if(slutDato.isBefore(startDato))
+            throw new IllegalArgumentException("Slutdato er før startdato");
     }
 
-    public void opretDosis(LocalTime tid, double antal ){
+    public void opretDosis(double antal){
 
         int antalNuværendeDosis = 0;
 
@@ -27,7 +30,7 @@ public class DagligFast extends Ordination {
 
         for(int index = 0; index < dosis.length; index++)
             if(dosis[index] == null)
-                dosis[index] = new Dosis(tid,antal);
+                dosis[index] = new Dosis(LocalTime.of(00,00),antal);
 
     }
 
@@ -42,6 +45,11 @@ public class DagligFast extends Ordination {
         for (Dosis dosi : dosis) {
             antalDagligdosis += dosi.getAntal();
         }
+
+        //Sørger for at der ikke kan kom minus
+        if(periode < 0)
+            throw new IllegalArgumentException("Slutdato er før startdato");
+
 
         return antalDagligdosis*periode;
     }

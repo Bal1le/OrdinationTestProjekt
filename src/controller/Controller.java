@@ -50,10 +50,10 @@ public class Controller {
 
 		DagligFast newDagligFast = new DagligFast(startDato, slutDato, laegemiddel);
 
-		newDagligFast.opretDosis(LocalTime.of(6,0),morgenAntal);
-		newDagligFast.opretDosis(LocalTime.of(12,0),middagAntal);
-		newDagligFast.opretDosis(LocalTime.of(18,0),aftenAntal);
-		newDagligFast.opretDosis(LocalTime.of(0,0),natAntal);
+		newDagligFast.opretDosis(morgenAntal);
+		newDagligFast.opretDosis(middagAntal);
+		newDagligFast.opretDosis(aftenAntal);
+		newDagligFast.opretDosis(natAntal);
 
 		patient.tilføjOrdination(newDagligFast);
 

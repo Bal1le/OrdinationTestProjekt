@@ -10,6 +10,9 @@ public class DagligSkaev extends Ordination {
 
     public DagligSkaev(LocalDate startDato, LocalDate slutDato, Laegemiddel laegemiddel) {
         super(startDato, slutDato, laegemiddel);
+
+        if(slutDato.isBefore(startDato))
+            throw new IllegalArgumentException("Slutdato er før startdato");
     }
 
     public void opretDosis(LocalTime tid, double antal ){
@@ -28,6 +31,10 @@ public class DagligSkaev extends Ordination {
         for (Dosis dosi : dosis) {
             antalDagligdosis += dosi.getAntal();
         }
+
+        //Sørger for at der ikke kan kom minus
+        if(periode < 0)
+            throw new IllegalArgumentException("Slutdato er før startdato");
 
         return antalDagligdosis*periode;
     }
