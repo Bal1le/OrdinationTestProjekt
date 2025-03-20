@@ -25,8 +25,11 @@ public class DagligFast extends Ordination {
                 antalNuværendeDosis += dosi.getAntal(); //Det samme hvis 3 var tom.
         }
 
-        if(antalNuværendeDosis == 4) return;
-        else if(antalNuværendeDosis + antal > 4) return;
+        if(antalNuværendeDosis == 4)
+            throw new IllegalArgumentException("For mange antal er givet dosis er skrevet ind (Maks 5)");
+
+        else if(antalNuværendeDosis + antal > 4)
+            throw new IllegalArgumentException("For mange antal er givet i dosis til sammen er skrevet ind (Maks 5)");
 
         for(int index = 0; index < dosis.length; index++)
             if(dosis[index] == null)
