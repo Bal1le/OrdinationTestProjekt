@@ -18,7 +18,7 @@ public class PN extends Ordination{
         if(vaegt < 0)
             throw new IllegalArgumentException("Du kan ikke have minus vægt");
 
-        this.antalEnheder = laegemiddel.anbefaletDosisPrDoegn((int)vaegt) * vaegt;
+        this.antalEnheder = laegemiddel.anbefaletDosisPrDoegn((int)vaegt);
     }
 
     /**

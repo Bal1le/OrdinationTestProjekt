@@ -26,7 +26,7 @@ public class DagligFast extends Ordination {
         }
 
         if(antalNuværendeDosis == 4)
-            throw new IllegalArgumentException("For mange antal er givet dosis er skrevet ind (Maks 5)");
+            throw new IllegalArgumentException("Der er allerede 4 dosis antal");
 
         else if(antalNuværendeDosis + antal > 4)
             throw new IllegalArgumentException("For mange antal er givet i dosis til sammen er skrevet ind (Maks 5)");
