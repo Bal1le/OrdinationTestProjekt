@@ -56,7 +56,7 @@ class ControllerTest {
         Exception e = assertThrows(IllegalArgumentException.class,
                 () -> {controller.opretDagligFastOrdination(LocalDate.of(2025, 3, 1),
                         LocalDate.of(2025, 3, 10), patient, laegemiddel,
-                        1.0, 1.0, 1.0, 1.0);
+                        2.0, 1.0, 1.0, 1.0);
         });
 
         assertEquals("Der er allerede 4 dosis antal",e.getMessage());
