@@ -23,7 +23,7 @@ class ControllerTest {
 
     @org.junit.jupiter.api.Test
     void opretPatient() {
-        Patient patient = controller.opretPatient("123456-7890", "TEST", 75.0);
+        Patient patient = controller.opretPatient("123456-7890", "TESTPERSON", 75.0);
         assertEquals("TEST", patient.getNavn());
         assertEquals(75.0, patient.getVaegt());
     }
@@ -31,15 +31,15 @@ class ControllerTest {
 
     @org.junit.jupiter.api.Test
     void opretLaegemiddel() {
-        Laegemiddel laegemiddel = controller.opretLaegemiddel("Pandodil", 0.5, 2, 3, "Styk");
-        assertEquals("Pandodil", laegemiddel.getNavn());
+        Laegemiddel laegemiddel = controller.opretLaegemiddel("paracetamol", 0.5, 2, 3, "Styk");
+        assertEquals("paracetamol", laegemiddel.getNavn());
     }
 
 
     @org.junit.jupiter.api.Test
     void opretPNOrdination() {
-        Patient patient = controller.opretPatient("123456-7890", "TEST", 80.0);
-        Laegemiddel laegemiddel = controller.opretLaegemiddel("Pandodil", 0.5, 2, 3, "Styk");
+        Patient patient = controller.opretPatient("123456-7890", "TESTPERSON", 80.0);
+        Laegemiddel laegemiddel = controller.opretLaegemiddel("paracetamol", 0.5, 2, 3, "Styk");
 
 
         PN pn = controller.opretPNOrdination(LocalDate.of(2025, 3, 1), LocalDate.of(2025, 3, 10), patient, laegemiddel, 2.0);
@@ -50,8 +50,8 @@ class ControllerTest {
 
     @org.junit.jupiter.api.Test
     void opretDagligFastOrdinationTC1() {
-        Patient patient = controller.opretPatient("123456-7890", "TEST", 80.0);
-        Laegemiddel laegemiddel = controller.opretLaegemiddel("Pandodil", 0.5, 2, 3, "Styk");
+        Patient patient = controller.opretPatient("123456-7890", "TESTPERSON", 80.0);
+        Laegemiddel laegemiddel = controller.opretLaegemiddel("paracetamol", 0.5, 2, 3, "Styk");
 
         controller.opretDagligFastOrdination(LocalDate.of(2025, 3, 1),
                         LocalDate.of(2025, 3, 10), patient, laegemiddel,
@@ -64,8 +64,8 @@ class ControllerTest {
 
     @org.junit.jupiter.api.Test
     void opretDagligFastOrdinationTC2() {
-        Patient patient = controller.opretPatient("123456-7890", "TEST", 80.0);
-        Laegemiddel laegemiddel = controller.opretLaegemiddel("Pandodil", 0.5, 2, 3, "Styk");
+        Patient patient = controller.opretPatient("123456-7890", "TESTPERSON", 80.0);
+        Laegemiddel laegemiddel = controller.opretLaegemiddel("paracetamol", 0.5, 2, 3, "Styk");
 
         Exception e = assertThrows(IllegalArgumentException.class,
                 () -> {controller.opretDagligFastOrdination(LocalDate.of(2025, 3, 1),
@@ -79,8 +79,8 @@ class ControllerTest {
 
     @org.junit.jupiter.api.Test
     void opretDagligSkaevOrdination() {
-        Patient patient = controller.opretPatient("123456-7890", "TEST", 80.0);
-        Laegemiddel laegemiddel = controller.opretLaegemiddel("Pandodil", 0.5, 2, 3, "Styk");
+        Patient patient = controller.opretPatient("123456-7890", "TESTPERSON", 80.0);
+        Laegemiddel laegemiddel = controller.opretLaegemiddel("paracetamol", 0.5, 2, 3, "Styk");
 
 
         LocalTime[] klokkeslet = {LocalTime.of(8, 0), LocalTime.of(12, 0), LocalTime.of(18, 0)};
@@ -115,8 +115,8 @@ class ControllerTest {
 
     @org.junit.jupiter.api.Test
     void anbefaletDosisPrDoegn() {
-        Patient patient = controller.opretPatient("123456-7890", "TEST", 80.0);
-        Laegemiddel laegemiddel = controller.opretLaegemiddel("Pandodil", 0.5, 2, 3, "Styk");
+        Patient patient = controller.opretPatient("123456-7890", "TESTPERSON", 80.0);
+        Laegemiddel laegemiddel = controller.opretLaegemiddel("paracetamol", 0.5, 2, 3, "Styk");
 
 
         double anbefalerDosis = controller.anbefaletDosisPrDoegn(patient, laegemiddel);

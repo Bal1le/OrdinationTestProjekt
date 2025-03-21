@@ -11,7 +11,7 @@ public class ConstructorDagligFastTest {
     void testConstructorDagligFastNotNull() {
         LocalDate startDato = LocalDate.of(2025,3,20);
         LocalDate slutDato = LocalDate.of(2025,3,21);
-        Laegemiddel testLaegemiddel = new Laegemiddel("TestMedicin",0.1,0.2,0.3,"pust");
+        Laegemiddel testLaegemiddel = new Laegemiddel("paracetamol",0.1,0.2,0.3,"pust");
 
         DagligFast dagligFast = new DagligFast(startDato, slutDato, testLaegemiddel);
 
@@ -23,7 +23,7 @@ public class ConstructorDagligFastTest {
     void testConstructorDagligFastThrowsException() {
         LocalDate startDato = LocalDate.of(2025,3,20);
         LocalDate slutDato = LocalDate.of(2025,3,19);
-        Laegemiddel testLaegemiddel = new Laegemiddel("TestMedicin", 0.1,0.2,0.3,"Styk");
+        Laegemiddel testLaegemiddel = new Laegemiddel("paracetamol", 0.1,0.2,0.3,"Styk");
 
         Exception e = assertThrows(IllegalArgumentException.class, () -> {
             new DagligFast(startDato, slutDato, testLaegemiddel);
@@ -34,7 +34,7 @@ public class ConstructorDagligFastTest {
 
     @Test
     void testOpretValidDosis() {
-        Laegemiddel testLaegemiddel = new Laegemiddel("TestMedicin", 0.1,0.2,0.3,"Styk");
+        Laegemiddel testLaegemiddel = new Laegemiddel("paracetamol", 0.1,0.2,0.3,"Styk");
         DagligFast dagligFast = new DagligFast(java.time.LocalDate.now(), java.time.LocalDate.now().plusDays(10), testLaegemiddel);
 
         dagligFast.opretDosis(2.0);

@@ -14,7 +14,7 @@ class DagligFastTest {
 
     @BeforeEach
     void setUp() {
-        dagligFast = new DagligFast(LocalDate.of(2025, 3, 20), LocalDate.of(2025, 3 ,21), new Laegemiddel("TestMeds", 0.1, 0.2, 0.3, "pust"));
+        dagligFast = new DagligFast(LocalDate.of(2025, 3, 20), LocalDate.of(2025, 3 ,21), new Laegemiddel("paracetamol", 0.1, 0.2, 0.3, "styk"));
     }
 
     @Test
@@ -52,7 +52,7 @@ class DagligFastTest {
 
     @Test
     void TC3samletDosis() {
-        DagligFast dagligFastTC3 = new DagligFast(LocalDate.of(2025,3,20), LocalDate.of(2025,3,25), new Laegemiddel("TestMeds", 0.1,0.2,0.3, "pust"));
+        DagligFast dagligFastTC3 = new DagligFast(LocalDate.of(2025,3,20), LocalDate.of(2025,3,25), new Laegemiddel("paracetamol", 0.1,0.2,0.3, "styk"));
 
         dagligFastTC3.opretDosis(3.0);
 

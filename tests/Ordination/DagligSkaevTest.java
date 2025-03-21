@@ -13,7 +13,7 @@ class DagligSkaevTest {
 
     @BeforeEach
     void setUp() {
-        dagligSkaev = new DagligSkaev(LocalDate.of(2025,3,20), LocalDate.of(2025,3,21), new Laegemiddel("TestMeds",0.1,0.2,0.3, "pust"));
+        dagligSkaev = new DagligSkaev(LocalDate.of(2025,3,20), LocalDate.of(2025,3,21), new Laegemiddel("paracetamol",0.1,0.2,0.3, "styk"));
     }
 
     @Test
@@ -82,7 +82,7 @@ class DagligSkaevTest {
 
     @Test
     void TC3samletDosis() {
-        DagligSkaev dagligSkaevTC3 = new DagligSkaev(LocalDate.of(2025,3,20), LocalDate.of(2025,3,25), new Laegemiddel("TestMeds", 0.1,0.2,0.3, "pust"));
+        DagligSkaev dagligSkaevTC3 = new DagligSkaev(LocalDate.of(2025,3,20), LocalDate.of(2025,3,25), new Laegemiddel("paracetamol", 0.1,0.2,0.3, "styk"));
 
         dagligSkaevTC3.opretDosis(LocalTime.of(8,0), 3.0);
 
