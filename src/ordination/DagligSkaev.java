@@ -42,6 +42,9 @@ public class DagligSkaev extends Ordination {
         if(periode < 0)
             throw new IllegalArgumentException("Slutdato er før startdato");
 
+        if(antalDagligdosis < 0)
+            antalDagligdosis = 0;
+
         return antalDagligdosis*periode;
     }
 

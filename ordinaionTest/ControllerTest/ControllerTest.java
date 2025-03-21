@@ -15,7 +15,9 @@ class ControllerTest {
 
     @BeforeEach
     void setUp() {
+
         controller = Controller.getTestController();
+
     }
 
 
@@ -106,5 +108,10 @@ class ControllerTest {
         double anbefalerDosis = controller.anbefaletDosisPrDoegn(patient, laegemiddel);
         assertEquals(2.0, anbefalerDosis);
     }
+
+
+    @org.junit.jupiter.api.Test
+    void checkStartFoerSlut(){}
+
 }
 
