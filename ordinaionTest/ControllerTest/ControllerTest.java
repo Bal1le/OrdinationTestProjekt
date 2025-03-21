@@ -1,20 +1,16 @@
-package controller;
+package ControllerTest;
 
 
+import controller.Controller;
 import ordination.*;
 import org.junit.jupiter.api.BeforeEach;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-
-
 class ControllerTest {
     private Controller controller;
-
-
 
 
     @BeforeEach
@@ -77,7 +73,6 @@ class ControllerTest {
 
         DagligSkaev dagligSkaev = controller.opretDagligSkaevOrdination(LocalDate.of(2025, 3, 1),
                 LocalDate.of(2025, 3, 10), patient, laegemiddel, klokkeslet, doser);
-
 
 
 
