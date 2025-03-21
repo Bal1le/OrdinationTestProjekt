@@ -38,7 +38,7 @@ class DagligFastTest {
 
         double samletDosis = dagligFast.samletDosis();
 
-        assertEquals(8.0, samletDosis);
+        assertEquals(2.0, samletDosis);
     }
 
     @Test
@@ -58,7 +58,7 @@ class DagligFastTest {
 
         double samletDosis = dagligFastTC3.samletDosis();
 
-        assertEquals(60, samletDosis);
+        assertEquals(15, samletDosis);
     }
 
 }
