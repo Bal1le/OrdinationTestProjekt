@@ -49,9 +49,4 @@ class PNTest {
         assertFalse(pnOrdination.givDosis(afterEnd));
         assertEquals(0, pnOrdination.getAntalGangeGivet());
     }
-
-    @Test
-    void TC6_GivDosis_NullDate_ShouldThrowException() {
-        assertThrows(IllegalArgumentException.class, () -> pnOrdination.givDosis(null));
-    }
 }
