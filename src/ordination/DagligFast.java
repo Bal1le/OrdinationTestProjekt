@@ -49,7 +49,8 @@ public class DagligFast extends Ordination {
         int antalDagligdosis = 0;
 
         for (Dosis dosi : dosis) {
-            antalDagligdosis += dosi.getAntal();
+            if(dosi != null)
+                antalDagligdosis += dosi.getAntal();
         }
 
         //Sørger for at der ikke kan kom minus
