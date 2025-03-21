@@ -49,7 +49,21 @@ class ControllerTest {
 
 
     @org.junit.jupiter.api.Test
-    void opretDagligFastOrdination() {
+    void opretDagligFastOrdinationTC1() {
+        Patient patient = controller.opretPatient("123456-7890", "TEST", 80.0);
+        Laegemiddel laegemiddel = controller.opretLaegemiddel("Pandodil", 0.5, 2, 3, "Styk");
+
+        controller.opretDagligFastOrdination(LocalDate.of(2025, 3, 1),
+                        LocalDate.of(2025, 3, 10), patient, laegemiddel,
+                        1.0, 1.0, 1.0, 1.0);
+
+
+
+        assertEquals(4,patient.getOrdinationer().getLast().doegnDosis());
+    }
+
+    @org.junit.jupiter.api.Test
+    void opretDagligFastOrdinationTC2() {
         Patient patient = controller.opretPatient("123456-7890", "TEST", 80.0);
         Laegemiddel laegemiddel = controller.opretLaegemiddel("Pandodil", 0.5, 2, 3, "Styk");
 
