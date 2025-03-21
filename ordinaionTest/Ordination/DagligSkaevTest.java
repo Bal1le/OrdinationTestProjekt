@@ -43,9 +43,13 @@ class DagligSkaevTest {
         LocalTime tid = LocalTime.of(18,45);
         double antal = -1.0;
 
-        dagligSkaev.opretDosis(tid,antal);
+        try {
+            dagligSkaev.opretDosis(tid, antal);
+        } catch (IllegalArgumentException e) {
+            // Expected exception, test continues
+        }
 
-        assertTrue(dagligSkaev.getDoser().isEmpty()); // Dosis må ikke oprettes antal negativt.
+        assertTrue(dagligSkaev.getDoser().isEmpty(), "Dosis må ikke oprettes, når antal er negativt.");
     }
 
     @Test

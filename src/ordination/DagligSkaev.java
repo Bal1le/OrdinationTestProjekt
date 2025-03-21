@@ -16,6 +16,12 @@ public class DagligSkaev extends Ordination {
     }
 
     public void opretDosis(LocalTime tid, double antal ){
+        if(tid == null) {
+            throw new NullPointerException("Tid må ikke være null");
+        }
+
+        if (antal <= 0 )
+            throw new IllegalArgumentException("Antallet skal være større end 0");
 
         dosis.add(new Dosis(tid, antal));
 
